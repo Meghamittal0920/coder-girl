@@ -4,7 +4,10 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ClickSpark from './bits/ClickSpark';
 import ScrollVelocity from './bits/ScrollVelocity';
-import Intro from './sections/Intro';
+import CurtainOpen from './sections/CurtainOpen';
+import ChakraStrike from './sections/ChakraStrike';
+import Bonds from './sections/Bonds';
+import CurtainClose from './sections/CurtainClose';
 import About from './sections/About';
 import Projects from './sections/Projects';
 import Skills from './sections/Skills';
@@ -15,8 +18,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 const NAV = [
   ['About', '#about'],
-  ['Work', '#work'],
-  ['Stack', '#skills'],
+  ['Missions', '#work'],
+  ['Jutsu', '#skills'],
+  ['Bonds', '#bonds'],
   ['Contact', '#contact']
 ];
 
@@ -27,7 +31,7 @@ export default function App() {
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     document.documentElement.classList.add('is-loading');
     if (reduce) return;
-    const l = new Lenis({ lerp: 0.09, wheelMultiplier: 0.9 });
+    const l = new Lenis({ lerp: 0.06, wheelMultiplier: 0.55, touchMultiplier: 0.8 });
     l.stop();
     lenis.current = l;
     l.on('scroll', ScrollTrigger.update);
@@ -60,11 +64,11 @@ export default function App() {
   }, []);
 
   return (
-    <ClickSpark sparkColor={['#ff7a1a', '#ffd7a8', '#e2383f']} sparkCount={10} sparkRadius={26} sparkSize={12} shape="star">
+    <ClickSpark sparkColor={['#ff7a1a', '#7cc8ff', '#ffd7a8']} sparkCount={10} sparkRadius={26} sparkSize={12} shape="star">
       <div className="grain" aria-hidden="true" />
       <header className="nav">
         <a href="#top" className="nav__logo">
-          <span className="nav__mark">メ</span> codergirl.megha
+          <span className="nav__mark">忍</span> codergirl.megha
         </a>
         <nav>
           {NAV.map(([label, href]) => (
@@ -74,15 +78,15 @@ export default function App() {
           ))}
         </nav>
         <a className="nav__cta" href="#contact">
-          Hire me
+          Summon me
         </a>
       </header>
 
       <main>
-        <Intro onReady={onReady} />
+        <CurtainOpen onReady={onReady} />
         <div className="ribbon">
           <ScrollVelocity
-            texts={['Megha Mittal ✦ Frontend Developer ✦ ', 'Anime-grade web ✦ Scroll stories ✦ ']}
+            texts={['Megha Mittal ✦ Frontend Shinobi ✦ ', 'Ninja way ✦ Scroll stories ✦ ']}
             velocity={70}
             className="marquee-text"
             outlineAlternate
@@ -90,10 +94,13 @@ export default function App() {
           />
         </div>
         <About />
+        <ChakraStrike />
         <Projects />
         <Skills />
+        <Bonds />
         <Experience />
         <Contact />
+        <CurtainClose />
       </main>
     </ClickSpark>
   );

@@ -43,13 +43,13 @@ export default function Experience() {
   return (
     <section ref={root} className="exp section" id="experience">
       <div className="section__head">
-        <span className="tag">04 — Experience</span>
-        <span className="tag tag--dim">経歴</span>
+        <span className="tag">06 — The path</span>
+        <span className="tag tag--dim">忍道</span>
       </div>
 
       <div className="exp__grid">
         <figure className="exp__portrait">
-          <img src="img/laptop-white.webp" alt="Illustrated portrait of Megha with her laptop" loading="lazy" />
+          <img src="nj/jacket-alpha.webp" alt="Illustrated portrait of Megha with her laptop" loading="lazy" />
         </figure>
 
         <div>

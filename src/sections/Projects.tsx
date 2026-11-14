@@ -2,7 +2,7 @@ import { useRef, type CSSProperties } from 'react';
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import TiltedCard from '../bits/TiltedCard';
-import { GH, projects } from '../data';
+import { GH, projects, rank } from '../data';
 
 export default function Projects() {
   const root = useRef<HTMLElement>(null);
@@ -19,8 +19,8 @@ export default function Projects() {
         scrollTrigger: {
           trigger: root.current,
           start: 'top top',
-          end: () => `+=${distance()}`,
-          scrub: 0.8,
+          end: () => `+=${distance() * 1.6}`,
+          scrub: 1.2,
           pin: true,
           invalidateOnRefresh: true,
           onUpdate: self => gsap.set('.projects__progress i', { scaleX: self.progress })
@@ -49,7 +49,7 @@ export default function Projects() {
       <div className="projects__progress"><i /></div>
       <div ref={track} className="projects__track">
         <div className="panel panel--intro">
-          <span className="tag">02 — Selected work</span>
+          <span className="tag">03 — Mission log</span>
           <h2 className="display projects__title">
             S-Rank
             <br />
@@ -63,6 +63,7 @@ export default function Projects() {
           <article key={p.repo} className="panel" style={{ '--accent': p.accent } as CSSProperties}>
             <span className="panel__kanji" aria-hidden="true">{p.kanji}</span>
             <span className="panel__num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+            <span className={`rank rank--${rank(p)}`} aria-label={`${rank(p)}-rank mission`}>{rank(p)}</span>
             <div className="panel__card">
               <TiltedCard
                 imageSrc={p.shot}

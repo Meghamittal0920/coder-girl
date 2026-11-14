@@ -8,9 +8,9 @@ import SplitText from '../bits/SplitText';
 import { drawCover, framePaths, loadFrames } from '../lib/frames';
 import { profile } from '../data';
 
-const CODE = framePaths('seq/code', 20);
+const CODE = framePaths('seq/peace', 66);
 
-// Ping-pong loop of the "coding on the sofa" clip, paused while off-screen.
+// Ping-pong loop of the peace-sign clip, paused while off-screen.
 function CodeLoop() {
   const ref = useRef<HTMLCanvasElement>(null);
   useEffect(() => {
@@ -25,13 +25,13 @@ function CodeLoop() {
       drawCover(ref.current, imgs[i]);
       if (i + dir < 0 || i + dir >= imgs.length) dir *= -1;
       i += dir;
-    }, 90);
+    }, 60);
     return () => {
       clearInterval(id);
       io.disconnect();
     };
   }, []);
-  return <canvas ref={ref} className="about__canvas" aria-label="Megha coding on a laptop" />;
+  return <canvas ref={ref} className="about__canvas" aria-label="Megha waving and flashing a peace sign from the sofa" />;
 }
 
 export default function About() {
@@ -75,8 +75,8 @@ export default function About() {
             <CodeLoop />
           </div>
           <div className="about__badge">
-            <CircularText text="OPEN TO FREELANCE ✦ COLLABS ✦ " size={150} fontSize={13} fontWeight={600} letterSpacing={2} spinDuration={18} color="#f3efe6">
-              <span className="about__badge-core">🍥</span>
+            <CircularText text="OPEN TO MISSIONS ✦ FREELANCE ✦ COLLABS ✦ " size={150} fontSize={13} fontWeight={600} letterSpacing={2} spinDuration={18} color="#f3efe6">
+              <span className="about__badge-core">忍</span>
             </CircularText>
           </div>
         </div>

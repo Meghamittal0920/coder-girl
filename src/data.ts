@@ -183,3 +183,17 @@ export const experience = [
     text: 'Cinematic, scroll-driven tribute sites with GSAP, Three.js and canvas — 544 stars and 437 followers along the way.'
   }
 ];
+
+// Mission rank from stars (client work is always S).
+export const rank = (p: Project) => (p.client || p.stars >= 70 ? 'S' : p.stars >= 20 ? 'A' : p.stars >= 13 ? 'B' : 'C');
+
+export const bonds: { src: string; alt: string; jp: string; en: string; shape: 'sq' | 'wide' | 'tall' }[] = [
+  { src: 'nj/p-moon.webp', alt: 'Two friends on a rooftop under a full moon', jp: '屋根の上', en: 'Rooftop nights', shape: 'sq' },
+  { src: 'nj/bonds.webp', alt: 'Megha and a friend sitting between React and JavaScript logos', jp: 'コードの絆', en: 'React × JavaScript', shape: 'wide' },
+  { src: 'nj/p-peace.webp', alt: 'Peace-sign selfie with React and JS icons', jp: 'ピース', en: 'Squad selfie', shape: 'sq' },
+  { src: 'nj/p-dream.webp', alt: 'Two friends overlooking a village at night', jp: '里の灯', en: 'Same dream, side by side', shape: 'tall' },
+  { src: 'nj/team.webp', alt: 'A big cheerful team portrait', jp: '仲間', en: 'The whole squad', shape: 'wide' },
+  { src: 'nj/p-desk.webp', alt: 'Late-night coding at a desk while a friend naps', jp: '徹夜', en: 'Late-night debugging', shape: 'tall' },
+  { src: 'nj/p-red.webp', alt: 'Two silhouettes under a red moon', jp: '赤い月', en: 'Red-moon resolve', shape: 'tall' },
+  { src: 'nj/chakra.webp', alt: 'A fiery chakra awakening portrait', jp: '覚醒', en: 'Awakening', shape: 'wide' }
+];
